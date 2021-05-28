@@ -36,16 +36,6 @@ using ::testing::Test;
 
 namespace magma {
 
-class MockSetInterfaceForUserPlane final
-    : public SetInterfaceForUserPlane::Service {
- public:
-  MockSetInterfaceForUserPlane() : SetInterfaceForUserPlane::Service() {}
-  MOCK_METHOD3(
-      SetUPFNodeState, Status(
-                           grpc::ServerContext*, const UPFNodeState*,
-                           std::function<void(Status, SmContextVoid)>));
-};
-
 class SetUPFNodeState : public ::testing::Test {
  public:
   virtual void SetUp() {
